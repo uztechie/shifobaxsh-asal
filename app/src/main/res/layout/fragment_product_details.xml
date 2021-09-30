@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/product_details_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@color/teal_200" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/product_details_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:id="@+id/product_details_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="desc"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_marginVertical="8dp"
+                android:id="@+id/product_details_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="250000"
+                android:textColor="@color/teal_200"
+                android:textSize="16sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:paddingVertical="12dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:id="@+id/product_details_full_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/to_liq_ma_lumot"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/product_details_full_desc_text"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <RelativeLayout
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/product_details_total_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@id/product_details_counter"
+                    android:text="54546000"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                    app:backGroundColor="@color/teal_200"
+                    android:id="@+id/product_details_counter"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    app:finalNumber="20"
+                    app:initialNumber="1"
+                    app:textColor="@color/white"
+                    app:textSize="6sp"
+                    tools:ignore="SmallSp" />
+            </RelativeLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:textColor="@color/white"
+                app:backgroundTint="@color/purple_500"
+                app:cornerRadius="16dp"
+                android:padding="14dp"
+                android:textSize="14sp"
+                android:id="@+id/product_details_add_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/savatchaga_qo_shish"
+                android:textAllCaps="false"
+                android:layout_gravity="end"
+                android:layout_marginVertical="16dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</ScrollView>

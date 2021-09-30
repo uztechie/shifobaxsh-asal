@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/dialog_message_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text=""/>
+
+    <ImageView
+        android:layout_marginTop="16dp"
+        android:id="@+id/dialog_message_img"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_success"/>
+    
+    <TextView
+        android:id="@+id/dialog_message_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Promo"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialog_message_btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        app:backgroundTint="@color/purple_500"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_margin="16dp"
+        app:cornerRadius="24dp"
+        />
+
+</LinearLayout>

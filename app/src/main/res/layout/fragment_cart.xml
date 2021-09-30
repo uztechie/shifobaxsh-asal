@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_above="@+id/cart_relative"
+        android:id="@+id/cart_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/adapter_cart" />
+
+    <RelativeLayout
+        android:padding="8dp"
+        android:id="@+id/cart_relative"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/cart_total_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/cart_btn_place_order"
+            android:text="Total: 2000000"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+
+        <com.google.android.material.button.MaterialButton
+            app:cornerRadius="16dp"
+            android:id="@+id/cart_btn_place_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/buyurtma_berish"
+            android:textAllCaps="false"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/purple_500" />
+    </RelativeLayout>
+</RelativeLayout>

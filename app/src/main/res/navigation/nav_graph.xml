@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.HomeFragment"
+        android:label="@string/asosiy">
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cabinetFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.CabinetFragment"
+        android:label="@string/kabinet">
+        <action
+
+            android:id="@+id/action_cabinetFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_cabinetFragment_to_friendFragment"
+            app:destination="@id/friendFragment" />
+        <action
+            android:id="@+id/action_cabinetFragment_to_bonusFragment"
+            app:destination="@id/bonusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.NewsFragment"
+        android:label="@string/yangiliklar">
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/codeVerificationFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.CodeVerificationFragment"
+        android:label="@string/tasdiqlash"
+        tools:layout="@layout/fragment_code_verification">
+        <action
+            android:id="@+id/action_codeVerificationFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneInputFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.PhoneInputFragment"
+        android:label="@string/royxatdan_otish">
+        <action
+
+            android:id="@+id/action_phoneInputFragment_to_codeVerificationFragment"
+            app:destination="@id/codeVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <action
+
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+
+        android:id="@+id/action_global_phoneInputFragment"
+        app:destination="@id/phoneInputFragment"
+        app:popUpTo="@id/phoneInputFragment"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.ProductDetailsFragment"
+        android:label="{title}">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.CartFragment"
+        android:label="@string/savatcha">
+        <action
+            android:id="@+id/action_cartFragment_to_cartSelectSellerFragment"
+            app:destination="@id/cartSelectSellerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+
+            android:id="@+id/action_cartFragment_to_cartSelectCustomerFragment"
+            app:destination="@id/cartSelectCustomerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <action
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+
+        android:id="@+id/action_global_cartFragment"
+        app:destination="@id/cartFragment" />
+    <fragment
+        android:id="@+id/cartSelectSellerFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.CartSelectSellerFragment"
+        android:label="@string/sotuvchini_tanlang">
+        <argument
+            android:name="totalPrice"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_cartSelectSellerFragment_to_confirmOrderFragment"
+            app:destination="@id/confirmOrderFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmOrderFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.ConfirmOrderFragment"
+        android:label="@string/kodni_tasdiqlash">
+        <argument
+            android:name="bonusPay"
+            app:argType="integer" />
+        <argument
+            android:name="code"
+            app:argType="integer" />
+        <argument
+            android:name="sellerId"
+            app:argType="integer" />
+        <argument
+            android:name="sellerName"
+            app:argType="string" />
+        <argument
+            android:name="sellerPhone"
+            app:argType="string" />
+    </fragment>
+    <action
+
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:label="{title}"
+        android:id="@+id/newsDetailsFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.NewsDetailsFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.HistoryFragment"
+        android:label="@string/haridlar_tarixi" />
+    <fragment
+        android:id="@+id/cartSelectCustomerFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.CartSelectCustomerFragment"
+        android:label="@string/haridorni_tanlang">
+        <action
+
+            android:id="@+id/action_cartSelectCustomerFragment_to_confirmOrderFragment"
+            app:destination="@id/confirmOrderFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="totalPrice"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/friendFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.FriendFragment"
+        android:label="@string/mening_dostlarim" />
+    <fragment
+        android:id="@+id/bonusFragment"
+        android:name="uz.techie.shifobaxshasaluz.fragments.BonusFragment"
+        android:label="@string/bonuslar_tarixi" />
+</navigation>

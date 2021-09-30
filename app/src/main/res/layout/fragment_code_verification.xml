@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.CodeVerificationFragment">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:visibility="visible"
+        android:id="@+id/confirm_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/purple_200"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        app:tint="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="24dp"/>
+
+
+    <com.uzairiqbal.circulartimerview.CircularTimerView
+        android:id="@+id/confirm_progress_circular"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        app:backgroundColor="@color/purple_500"
+        app:backgroundWidth="4"
+        app:isClockwise="true"
+        app:maxValue="100"
+        app:prefix=""
+        app:progressBackgroundColor="#eee"
+        app:progressColor="@color/purple_200"
+        app:progressText=""
+        app:progressTextColor="#eee"
+        app:roundedCorners="true"
+        app:startingPoint="bottom"
+        app:suffix=" sec"
+        app:textSize="12sp" />
+
+    <TextView
+        android:layout_below="@+id/confirm_progress_circular"
+        android:layout_margin="16dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/confirm_detail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
+
+    <com.chaos.view.PinView
+        android:layout_below="@id/confirm_detail_tv"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/pinView"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cursorVisible="true"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="@color/purple_500"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cursorColor="@color/purple_500"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="false"
+        app:itemCount="6"
+        app:itemHeight="40dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="0dp"
+        app:itemWidth="40dp"
+        app:lineColor="@color/purple_500"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
+
+
+    <TextView
+        style="?android:textColorLink"
+        android:id="@+id/confirm_didnt_receive_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:text="@string/kod_kelmadi"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_below="@+id/pinView"
+        android:visibility="gone"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:visibility="gone"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/confirm_didnt_receive_code"
+        android:id="@+id/confirm_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_margin="12dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/black"
+                    android:id="@+id/register_name_layout"
+                    style="@style/RegisterInputDropdownStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ism_va_familiya"
+                    app:errorEnabled="true">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/register_name"
+                        style="@style/DropdownStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:maxLength="25"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <RadioGroup
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/register_gender_radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:checked="true"
+                        android:id="@+id/radio_male"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/erkak"
+                        android:textSize="16sp"/>
+                    <RadioButton
+                        android:id="@+id/radio_female"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ayol"
+                        android:textSize="16sp"/>
+                </RadioGroup>
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/iltimos_tug_ulgan_sanani_tanlang"
+                    android:textSize="10sp"
+                    android:textColor="@color/red"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/register_date"
+                    android:gravity="left"
+                    app:strokeWidth="1dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    app:strokeColor="@color/black"
+                    android:text="@string/tug_ulgan_sana"
+                    android:textAllCaps="false"
+                    android:padding="16dp"
+                    app:cornerRadius="12dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

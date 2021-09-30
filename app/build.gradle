@@ -1,0 +1,139 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId 'uz.techie.shifobaxshasaluz'
+        minSdk 21
+        targetSdk 30
+        versionCode 5
+        versionName '5.0'
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'com.android.support:multidex:2.0.1'
+
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+//    // Import the BoM for the Firebase platform
+//    implementation platform('com.google.firebase:firebase-bom:28.1.0')
+//
+//    implementation 'com.google.firebase:firebase-auth'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+
+    //room
+    implementation "androidx.room:room-runtime:2.3.0"
+    implementation "androidx.room:room-rxjava3:2.3.0"
+//    implementation "androidx.room:room-rxjava2:2.3.0"
+    annotationProcessor "androidx.room:room-compiler:2.3.0"
+
+
+    //Navigation components
+    implementation "androidx.navigation:navigation-fragment:2.3.5"
+    implementation "androidx.navigation:navigation-ui:2.3.5"
+
+    //verification code
+    implementation 'com.chaos.view:pinview:1.4.4'
+
+
+    //phone edittext
+    implementation 'com.github.pinball83:masked-edittext:1.0.4'
+
+    //progressbar
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
+    //okhttp
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+
+    //card slider
+    implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
+
+    //sircular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+//    //RX Java
+    implementation "io.reactivex.rxjava3:rxjava:3.0.13"
+//    //RX Android
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    //progressbar
+//    implementation 'com.moos:Material-ProgressView:1.0.6'
+
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
+    //tablayout
+    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
+
+
+
+    //time progressbar
+    implementation 'com.github.uzairiqbal91:CircularTimerView:1.0'
+
+
+    //retrofit rx java
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
+
+    //gender
+    implementation 'com.github.mutasemhajhasan:BooleanSelectionView:1.3.0'
+
+    //datePicker
+    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.3'
+
+    //number button
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.3'
+
+
+    //runtime permission
+    implementation 'com.guolindev.permissionx:permissionx:1.5.1'
+
+
+
+
+}

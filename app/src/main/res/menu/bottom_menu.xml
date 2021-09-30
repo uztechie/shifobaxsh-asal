@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/asosiy"
+        android:icon="@drawable/ic_home_filled"/>
+
+    <item
+        android:id="@+id/newsFragment"
+        android:title="@string/yangiliklar"
+        android:icon="@drawable/ic_news"/>
+
+    <item
+        android:id="@+id/cabinetFragment"
+        android:title="@string/kabinet"
+        android:icon="@drawable/ic_person"/>
+
+
+</menu>

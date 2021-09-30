@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="fragments.PhoneInputFragment">
+
+    <TextView
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="180dp"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ilovadan_foydalanish_uchun_iltimos_telefon_raqamingizni_kiriting"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/text"
+        android:layout_marginHorizontal="40dp"
+        android:id="@+id/phone_input_phone_container"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.github.pinball83.maskededittext.MaskedEditText
+            android:id="@+id/phone_input_phone_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:outlineAmbientShadowColor="@color/white"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:mask="+998 ** *** ** **"
+            app:notMaskedSymbol="*" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/phone_input_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        app:backgroundTint="@color/teal_200"
+        app:tint="@color/white" />
+
+
+
+
+</RelativeLayout>

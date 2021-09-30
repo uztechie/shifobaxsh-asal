@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            android:background="@android:color/white"
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_500"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/cabinet_name"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_toStartOf="@+id/cabinet_editname"
+                        android:drawableLeft="@drawable/ic_baseline_person_24"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/ism_va_familiya" />
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/cabinet_editname"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_baseline_edit_24"
+                        app:tint="@color/white" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/cabinet_phone"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:drawableLeft="@drawable/ic_baseline_phone_android_24"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/telefon" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/cabinet_gender"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:drawableLeft="@drawable/ic_gender"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/jins" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp">
+
+                    <TextView
+                        android:id="@+id/cabinet_birthdate"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:drawableLeft="@drawable/ic_calendar"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/tug_ulgan_sana" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_marginVertical="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/white" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/cabinet_bonus"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:drawableLeft="@drawable/ic_wallet"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/umumiy_bonuslar"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:drawableTint="@color/white" />
+                </RelativeLayout>
+
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:text="@string/siz_o_z_bonuslaringizni_mahsulot_sotib_olish_uchun_ishlatishingiz_mumkin"
+                    app:drawableTint="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/cabinet_more_about_bonus"
+                    android:textSize="16sp"
+                    android:textColor="@color/purple_200"
+                    android:text="@string/batafsil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"/>
+
+                <View
+                    android:layout_marginVertical="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/white" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/cabinet_affiliate_link"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:layout_toStartOf="@+id/cabinet_affiliate_copy_btn"
+                        android:drawablePadding="16sp"
+                        android:gravity="center_vertical"
+                        android:text="@string/affiliate_link"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/cabinet_affiliate_copy_btn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_baseline_share_24"
+                        app:tint="@color/white" />
+                </RelativeLayout>
+
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:text="@string/ushbu_link_orqali_do_stlaringizni_tak"
+                    app:drawableTint="@color/white"
+                    android:id="@+id/cabinet_affiliate_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/cabinet_card_friends"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            android:background="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="16dp"
+                android:background="@color/purple_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:drawableLeft="@drawable/ic_baseline_group_24"
+                        android:drawablePadding="12dp"
+                        android:layout_toLeftOf="@+id/cabinet_friends"
+                        android:id="@+id/friendtext"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/sizning_do_stlaringiz" />
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/cabinet_friends"
+                        style="@style/cabinetTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="center_vertical"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/cabinet_card_history"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="16dp"
+                android:background="@color/purple_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cabinet_history"
+                    style="@style/cabinetTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_trand"
+                    android:drawablePadding="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/savdo_tarixi" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/cabinet_card_logout"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            android:background="@android:color/white"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="16dp"
+                android:background="@color/purple_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cabinet_logout"
+                    style="@style/cabinetTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_logout"
+                    android:drawablePadding="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/chiqish" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/cabinet_card_login"
+            android:layout_gravity="center"
+            app:cardUseCompatPadding="true"
+            android:background="@android:color/white"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:focusable="true">
+
+            <RelativeLayout
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="16dp"
+                android:background="@color/purple_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/cabinet_login"
+                    style="@style/cabinetTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:drawableLeft="@drawable/ic_login"
+                    android:drawablePadding="12dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/kirish" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>
