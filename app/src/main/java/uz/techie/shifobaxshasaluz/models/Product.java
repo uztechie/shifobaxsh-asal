@@ -24,6 +24,7 @@ public class Product {
     private int price;
     private String published_date;
     private String photo;
+    private String status;
 
     public int getId() {
         return id;
@@ -97,9 +98,13 @@ public class Product {
         this.photo = photo;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
-
-
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public static DiffUtil.ItemCallback<Product> itemCallback = new DiffUtil.ItemCallback<Product>() {
         @Override

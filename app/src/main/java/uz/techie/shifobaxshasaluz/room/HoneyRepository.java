@@ -113,7 +113,7 @@ public class HoneyRepository {
 
                     @Override
                     public void onNext(@NonNull List<Product> products) {
-                        insertProducts(products);
+                        deleteProducts(products);
                         Log.d(TAG, "onNext: products " + products.size());
 
                     }
@@ -423,11 +423,6 @@ public class HoneyRepository {
     public LiveData<List<Order>> getHistoryItemsLive(){
         return dao.getHistoryItemsLive();
     }
-
-
-
-
-
 
 
     public void destroy() {

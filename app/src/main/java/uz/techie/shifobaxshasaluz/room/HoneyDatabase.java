@@ -25,7 +25,7 @@ import uz.techie.shifobaxshasaluz.models.User;
                 Order.class,
                 History.class
         },
-        version = 17)
+        version = 18)
 abstract class HoneyDatabase extends RoomDatabase {
     private static HoneyDatabase instance;
 
