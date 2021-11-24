@@ -12,7 +12,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -25,6 +28,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
 import com.chaos.view.PinView;
+import com.github.pinball83.maskededittext.MaskedEditText;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -38,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.CompletableObserver;
@@ -59,6 +64,8 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
     String TAG = "CodeVerificationFragment";
     HoneyViewModel viewModel;
 
+
+
     PinView pinView;
     FloatingActionButton actionButton;
     String codebySystem = "";
@@ -75,6 +82,10 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
     RadioGroup radioGroup;
     MaterialButton btnDate;
     String sDate = "";
+
+    CheckBox checkBox;
+    TextInputLayout phoneInputLayout;
+    MaskedEditText phoneEt;
 
     CompositeDisposable disposable;
 
@@ -111,6 +122,10 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
         etName = view.findViewById(R.id.register_name);
         radioGroup = view.findViewById(R.id.register_gender_radioGroup);
         btnDate = view.findViewById(R.id.register_date);
+
+        checkBox = view.findViewById(R.id.register_checkbox);
+        phoneInputLayout = view.findViewById(R.id.register_phone_inputlayout);
+        phoneEt = view.findViewById(R.id.register_phone_edittext);
 
 
         pinView = view.findViewById(R.id.pinView);
@@ -165,6 +180,19 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
         });
 
 
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    phoneInputLayout.setVisibility(View.VISIBLE);
+                }
+                else {
+                    phoneInputLayout.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
 
     }
 
@@ -175,8 +203,9 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
     }
 
     private void registerUser() {
-        String code = pinView.getText().toString();
-        String name = etName.getText().toString();
+        String code = Objects.requireNonNull(pinView.getText()).toString();
+        String name = Objects.requireNonNull(etName.getText()).toString();
+        String invitationPhone = "998"+ phoneEt.getUnmaskedText();
         int gender = 1;
         if (radioGroup.getCheckedRadioButtonId() == R.id.radio_male){
             gender = 1;
@@ -185,9 +214,9 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
             gender = 2;
         }
 
-
         if (name.isEmpty()){
             layoutName.setError(getString(R.string.iltimos_ism_va_familiya));
+            return;
         }
         else {
             layoutName.setError(null);
@@ -200,6 +229,7 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
             btnDate.setIconTintResource(R.color.red);
             btnDate.setIconGravity(MaterialButton.ICON_GRAVITY_END);
             btnDate.setStrokeColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+            return;
         }
         else {
             btnDate.setText(sDate);
@@ -207,9 +237,20 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
             btnDate.setStrokeColorResource(R.color.black);
         }
 
-        if (!name.isEmpty() && !sDate.isEmpty() && code.length()>=6){
-            requestRegisterUser(code, name, gender, sDate);
+        if (!checkBox.isChecked()){
+            invitationPhone = "0";
         }
+
+        if (checkBox.isChecked() && invitationPhone.length()<12){
+            phoneInputLayout.setError(getString(R.string.mavjud_telefon_raqami));
+            return;
+        }
+        else {
+            phoneInputLayout.setError(null);
+        }
+
+
+        requestRegisterUser(code, name, gender, sDate, invitationPhone);
 
 
 
@@ -390,18 +431,20 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
 
     }
 
-    private void requestRegisterUser(String code, String name, int gender, String date){
+    private void requestRegisterUser(String code, String name, int gender, String date, String invitationPhone){
         Log.d(TAG, "requestRegisterUser: name: "+ name);
         Log.d(TAG, "requestRegisterUser: code: "+ code);
         Log.d(TAG, "requestRegisterUser: gender: "+ gender);
         Log.d(TAG, "requestRegisterUser: date: "+ date);
         Log.d(TAG, "requestRegisterUser: phoneNumber: "+ phoneNumber);
+        Log.d(TAG, "requestRegisterUser: invitationPhone: "+ invitationPhone);
 
 
         Utils.showProgressBar(progressHUD);
-        ApiClient.getApiInterface().registerUser(phoneNumber, code, name, date, gender)
+        ApiClient.getApiInterface().registerUser(phoneNumber, code, name, date, gender, invitationPhone)
                 .toObservable()
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<HoneyResponse>() {
                     @Override
                     public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {

@@ -32,94 +32,108 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                android:padding="12dp"
-                android:orientation="vertical"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginVertical="12dp"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:text="@string/about_bonus_title"
-                    android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:layout_marginTop="12dp"
-                    android:id="@+id/txt1"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txt2"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txt3"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txt4"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/txt5"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:id="@+id/txt6"
-                    android:text="@string/about_private_bonus"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
                 <LinearLayout
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
+                    android:padding="12dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-                    <CheckBox
-                        android:layout_marginRight="16dp"
-                        android:text="@string/boshqa_ko_rsatilmasin"
-                        android:id="@+id/dialog_checkbox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <Button
-                        android:textColor="@color/white"
-                        app:backgroundTint="@color/purple_500"
-                        android:layout_marginVertical="16dp"
-                        android:text="Ok"
-                        android:id="@+id/btnOk"
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_marginVertical="12dp"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:text="@string/about_bonus_title"
+                        android:gravity="center_horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"/>
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:id="@+id/txt1"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/txt2"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/txt3"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/txt4"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/txt5"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt6"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt7"
+                        android:text="@string/about_private_bonus"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:layout_marginRight="16dp"
+                            android:text="@string/boshqa_ko_rsatilmasin"
+                            android:id="@+id/dialog_checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <Button
+                            android:textColor="@color/white"
+                            app:backgroundTint="@color/purple_500"
+                            android:layout_marginVertical="16dp"
+                            android:text="Ok"
+                            android:id="@+id/btnOk"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"/>
+
+                    </LinearLayout>
+
+
+
 
                 </LinearLayout>
+            </ScrollView>
 
 
-
-
-            </LinearLayout>
 
 
 

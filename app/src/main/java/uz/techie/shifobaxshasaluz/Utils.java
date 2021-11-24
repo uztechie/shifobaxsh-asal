@@ -1,12 +1,18 @@
 package uz.techie.shifobaxshasaluz;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.multidex.MultiDexApplication;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
@@ -16,6 +22,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import uz.nisd.asalsavdosi.R;
 
 public class Utils extends MultiDexApplication {
 
@@ -250,8 +258,55 @@ public class Utils extends MultiDexApplication {
 
 
 
+    public static void toastIconSuccess(Activity activity, String message) {
+        Toast toast = new Toast(activity);
+        toast.setDuration(Toast.LENGTH_LONG);
+
+        //inflate view
+        View custom_view = activity.getLayoutInflater().inflate(R.layout.toast_icon_text, null);
+        ((TextView) custom_view.findViewById(R.id.message)).setText(message);
+        ((ImageView) custom_view.findViewById(R.id.icon)).setImageResource(R.drawable.ic_twotone_done_24);
+        ((CardView) custom_view.findViewById(R.id.parent_view)).setCardBackgroundColor(activity.getResources().getColor(R.color.green));
+
+        toast.setView(custom_view);
+        toast.show();
+    }
+
+    public static  void toastIconError(Activity activity, String message) {
+        Toast toast = new Toast(activity);
+        toast.setDuration(Toast.LENGTH_LONG);
+
+        //inflate view
+        View custom_view = activity.getLayoutInflater().inflate(R.layout.toast_icon_text, null);
+        ((TextView) custom_view.findViewById(R.id.message)).setText(message);
+        ((ImageView) custom_view.findViewById(R.id.icon)).setImageResource(R.drawable.ic_baseline_close_24);
+        ((CardView) custom_view.findViewById(R.id.parent_view)).setCardBackgroundColor(activity.getResources().getColor(R.color.redd));
+
+        toast.setView(custom_view);
+        toast.show();
+    }
 
 
+
+
+    public static String reformatDate(String previousDate){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = dateFormat.parse(previousDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        if (date != null){
+            String formattedDate = dateFormat.format(date);
+            return formattedDate;
+        }
+
+        return previousDate;
+
+    }
 
 
 

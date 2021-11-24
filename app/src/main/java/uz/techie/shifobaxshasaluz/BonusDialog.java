@@ -20,7 +20,7 @@ public class BonusDialog {
 
     private final Activity activity;
     private AlertDialog dialog;
-    TextView tv1,tv2,tv3,tv4,tv5;
+    TextView tv1,tv2,tv3,tv4,tv5, tv6;
     Button btnOk;
     CheckBox checkBox;
     ProgressBar progressBar;
@@ -49,6 +49,7 @@ public class BonusDialog {
         tv3 = dialog.findViewById(R.id.txt3);
         tv4 = dialog.findViewById(R.id.txt4);
         tv5 = dialog.findViewById(R.id.txt5);
+        tv6 = dialog.findViewById(R.id.txt6);
         btnOk = dialog.findViewById(R.id.btnOk);
 
         btnOk.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +92,9 @@ public class BonusDialog {
             }
             else if (bonus.getId() == 5){
                 tv5.setText(activity.getString(R.string.tugulgan_kuningizda)+" "+bonus.getAmount());
+            }
+            else if (bonus.getId() == 6){
+                tv6.setText(activity.getString(R.string.taklif_qilgan_dostingizga)+" "+bonus.getAmount());
             }
 
         }

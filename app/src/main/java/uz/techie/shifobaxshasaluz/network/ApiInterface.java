@@ -11,6 +11,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import uz.techie.shifobaxshasaluz.Constants;
 import uz.techie.shifobaxshasaluz.models.Bonus;
 import uz.techie.shifobaxshasaluz.models.Friend;
 import uz.techie.shifobaxshasaluz.models.History;
@@ -48,7 +49,8 @@ public interface ApiInterface {
             @Field("otp_key") String otpCode,
             @Field("first_name") String name,
             @Field("bdata") String date,
-            @Field("Jinsi") int gender
+            @Field("Jinsi") int gender,
+            @Field("affilate_id")String affiliatePhone
     );
 
 
@@ -119,6 +121,16 @@ public interface ApiInterface {
     @GET("api/bonus_history")
     Flowable<List<History>> loadBonuses(
             @Header("Authorization") String userToken
+    );
+
+
+    //affilate
+    @FormUrlEncoded
+    @POST("api/set-affilate-id/")
+    Flowable<OrderResponse> addAffliate(
+            @Header("MyToken") String myToken,
+            @Header("Authorization") String userToken,
+            @Field("phone_number") String phoneNumber
     );
 
 

@@ -81,6 +81,14 @@
     <string name="bonuslar_tarixi">Бонуслар тарихи</string>
     <string name="mening_dostlarim">Менинг дўстларим</string>
     <string name="qabul_qilingan_bonus">Қабул қилинган бонус</string>
+    <string name="sizni_taklif_qilishdimi">Сизни таклиф қилишдими?</string>
+    <string name="taklif_qilgan_do_stingizning_telefon_raqamini_kiriting">Таклиф қилган дўстингизнинг телефон рақамини киритинг (агар мавжуд бўлса)</string>
+    <string name="taklif_qilgan_do_stni_qo_shish">Таклиф қилган дўстни қўшиш</string>
+    <string name="sizni_taklif_qilgan_do_stingiz_telefon_raqamini_kiriting">Сизни таклиф қилган дўстингиз телефон рақамини киритинг</string>
+    <string name="ok">Ок</string>
+    <string name="taklif_qiluvchini_qo_shish">Таклиф қилувчини қўшиш</string>
+    <string name="taklif_qilgan_dostingizga">6.  Сизни таклиф қилган фойдаланувчига (агар сиз унинг таклиф қилиш URL манзили орқали рўйхатдан ўтсангиз)</string>
+    <string name="bekor_qilish">Бекор қилиш</string>
 
 
 </resources>

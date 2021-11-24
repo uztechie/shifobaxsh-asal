@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,16 +31,19 @@ import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import uz.nisd.asalsavdosi.R;
 import uz.techie.shifobaxshasaluz.BonusDialog;
+import uz.techie.shifobaxshasaluz.dialog.AffiliateDialog;
 import uz.techie.shifobaxshasaluz.fragments.CabinetFragmentDirections;
 import uz.techie.shifobaxshasaluz.Constants;
 import uz.techie.shifobaxshasaluz.CustomDialog;
 import uz.techie.shifobaxshasaluz.Utils;
 import uz.techie.shifobaxshasaluz.models.Bonus;
+import uz.techie.shifobaxshasaluz.models.OrderResponse;
 import uz.techie.shifobaxshasaluz.models.User;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
@@ -55,6 +59,7 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
     MaterialCardView cardLogout;
     MaterialCardView cardLogin;
     MaterialCardView cardFriend;
+    MaterialCardView cardAddAffiliate;
     String token = "";
 
     BonusDialog bonusDialog;
@@ -96,6 +101,7 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
         cardLogout = view.findViewById(R.id.cabinet_card_logout);
         cardLogin = view.findViewById(R.id.cabinet_card_login);
         cardFriend = view.findViewById(R.id.cabinet_card_friends);
+        cardAddAffiliate = view.findViewById(R.id.cabinet_card_add_affiliate);
 
         viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
 
@@ -183,12 +189,68 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
             }
         });
 
+        cardAddAffiliate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AffiliateDialog affiliateDialog = new AffiliateDialog(requireContext(), new AffiliateDialog.AffiliateDialogListener() {
+                    @Override
+                    public void onConfirmClick(String phone) {
+                        addAffiliate(phone);
+                    }
+                });
+                affiliateDialog.show();
+            }
+        });
 
+
+    }
+
+    private void addAffiliate(String phone) {
+        Log.d(TAG, "addAffiliate: phone "+phone);
+        progressHUD.show();
+        String myToken = Constants.HEADER_KEY_ORDER_SMS;
+        ApiClient.getApiInterface().addAffliate(myToken, token, phone)
+                .toObservable()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<OrderResponse>() {
+                    @Override
+                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onNext(@io.reactivex.rxjava3.annotations.NonNull OrderResponse orderResponse) {
+                        progressHUD.dismiss();
+                        if (orderResponse.getStatus() == 200){
+                            Utils.toastIconSuccess(requireActivity(), orderResponse.getMessage());
+                            cardAddAffiliate.setVisibility(View.GONE);
+                        }
+                        else {
+                            Utils.toastIconError(requireActivity(), orderResponse.getMessage());
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        progressHUD.dismiss();
+                        Utils.toastIconError(requireActivity(), e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     private void userState() {
         if (viewModel.getUser() != null){
             token = viewModel.getUser().getToken();
+            token = "token "+token;
+
             cardLogout.setVisibility(View.VISIBLE);
             cardHistory.setVisibility(View.VISIBLE);
             cardLogin.setVisibility(View.GONE);
@@ -196,7 +258,7 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
             User user = viewModel.getUser();
             tvName.setText(user.getFirst_name());
             tvBonus.setText(Utils.moneyToDecimal(user.getBonus()));
-            tvBirthdate.setText(user.getBirthday());
+            tvBirthdate.setText(Utils.reformatDate(user.getBirthday()));
             tvPhone.setText(user.getUser());
             tvFriends.setText(user.getFriend()+"");
             tvAffiliate.setText("https://shifobaxshasal.uz/"+user.getId()+"/login");
@@ -268,7 +330,6 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
 
 
     public void loadUserProfile() {
-        token = "token "+token;
         Log.d("TAG", "loadUserProfile: token: "+token);
         Utils.showProgressBar(progressHUD);
         ApiClient.getApiInterface().loadUserProfile(token)
@@ -283,6 +344,15 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
 
                     @Override
                     public void onNext(@io.reactivex.rxjava3.annotations.NonNull User user) {
+                        Log.d(TAG, "onNext: getAffilate_id "+user.getAffilate_id());
+                        if (user.getAffilate_id() == 0){
+                            cardAddAffiliate.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            cardAddAffiliate.setVisibility(View.GONE);
+                        }
+
+
                         insertUserData(user);
                         Log.d("TAG", "onNext: profile " + user.getFirst_name());
                     }
@@ -359,4 +429,8 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
         super.onStop();
         disposable.clear();
     }
+
+
+
+
 }
