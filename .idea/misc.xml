@@ -14,6 +14,7 @@
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/cart_counter_rounded_bg.xml" value="0.1453125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/custom_dialog_bg.xml" value="0.21388888888888888" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/ic_affiliate_marketing.xml" value="0.26927083333333335" />
+        <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.22037037037037038" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.1453125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.26927083333333335" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/drawable/ic_calendar.xml" value="0.26927083333333335" />
@@ -34,6 +35,7 @@
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_bonus.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_cart.xml" value="0.264" />
+        <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_dropdown.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_friends.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_history.xml" value="0.4" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/adapter_history_item.xml" value="0.253125" />
@@ -44,6 +46,7 @@
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/custom_wheel_date_picker.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/date_picker_dialog.xml" value="0.8070866141732284" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/dialog_bonus.xml" value="0.253125" />
+        <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/dialog_input_affiliate.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/dialog_message.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/dropdown_adapter.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/fragment_cabinet.xml" value="0.253125" />
@@ -58,6 +61,7 @@
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/fragment_news_details.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/fragment_phone_input.xml" value="0.176" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/fragment_product_details.xml" value="0.253125" />
+        <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/toast_icon_text.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/layout/toolbar.xml" value="0.17844202898550723" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/menu/bottom_menu.xml" value="0.253125" />
         <entry key="..\:/Projects/AndroidProject/Custom/AsalSavdosi/app/src/main/res/menu/toolbar_menu.xml" value="0.253125" />
@@ -65,7 +69,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

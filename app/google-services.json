@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:994041244869:android:3d0fb935cbe491b3f914ac",
+        "android_client_info": {
+          "package_name": "uz.ibroxim.shifobaxsh_asal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994041244869-q0eogdec3d2qjfdb1uc5dj572sr9u0t8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLO7koej5RKLXDhLEHMOfQdEladnUzJ4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994041244869-q0eogdec3d2qjfdb1uc5dj572sr9u0t8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:994041244869:android:87aa34efde2b18b9f914ac",
         "android_client_info": {
           "package_name": "uz.techie.shifobaxshasaluz"

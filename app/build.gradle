@@ -8,11 +8,11 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId 'uz.techie.shifobaxshasaluz'
+        applicationId 'uz.ibroxim.shifobaxsh_asal'
         minSdk 21
         targetSdk 30
-        versionCode 8
-        versionName '8.0'
+        versionCode 1
+        versionName '1.0'
 
         multiDexEnabled true
 

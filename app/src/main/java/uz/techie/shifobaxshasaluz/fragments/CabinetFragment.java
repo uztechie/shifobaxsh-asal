@@ -352,7 +352,6 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
                             cardAddAffiliate.setVisibility(View.GONE);
                         }
 
-
                         insertUserData(user);
                         Log.d("TAG", "onNext: profile " + user.getFirst_name());
                     }
