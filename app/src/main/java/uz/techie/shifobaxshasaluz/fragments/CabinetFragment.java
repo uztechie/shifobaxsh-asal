@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.card.MaterialCardView;
@@ -47,6 +47,7 @@ import uz.techie.shifobaxshasaluz.models.OrderResponse;
 import uz.techie.shifobaxshasaluz.models.User;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class CabinetFragment extends Fragment implements CustomDialog.CustomDialogInterface {
@@ -103,7 +104,7 @@ public class CabinetFragment extends Fragment implements CustomDialog.CustomDial
         cardFriend = view.findViewById(R.id.cabinet_card_friends);
         cardAddAffiliate = view.findViewById(R.id.cabinet_card_add_affiliate);
 
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
 
         userState();
 

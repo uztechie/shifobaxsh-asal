@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +41,7 @@ import uz.techie.shifobaxshasaluz.Utils;
 import uz.techie.shifobaxshasaluz.adapter.CartAdapter;
 import uz.techie.shifobaxshasaluz.models.Cart;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class CartFragment extends Fragment implements CartAdapter.CartInterface {
@@ -70,7 +71,7 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         progressHUD = new KProgressHUD(requireContext());
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         disposable = new CompositeDisposable();
 
         tvTotalPrice = view.findViewById(R.id.cart_total_price);

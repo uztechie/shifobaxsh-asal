@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.chaos.view.PinView;
@@ -47,6 +47,7 @@ import uz.techie.shifobaxshasaluz.models.OrderResponse;
 import uz.techie.shifobaxshasaluz.models.RequestOrder;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class ConfirmOrderFragment extends Fragment implements CustomDialog.CustomDialogInterface {
@@ -99,7 +100,7 @@ public class ConfirmOrderFragment extends Fragment implements CustomDialog.Custo
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         customDialog = new CustomDialog(requireActivity(), ConfirmOrderFragment.this);
 
         if (getArguments() != null){

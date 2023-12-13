@@ -1,6 +1,7 @@
 package uz.techie.shifobaxshasaluz.models;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +24,7 @@ public class Seller {
     public Seller() {
     }
 
+    @Ignore
     public Seller(int id, String name, String phone) {
         this.id = id;
         this.name = name;

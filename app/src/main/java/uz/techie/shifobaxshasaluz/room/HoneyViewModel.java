@@ -1,14 +1,22 @@
 package uz.techie.shifobaxshasaluz.room;
 
+import static androidx.lifecycle.SavedStateHandleSupport.createSavedStateHandle;
+
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.SavedStateHandle;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.viewmodel.CreationExtras;
+import androidx.lifecycle.viewmodel.ViewModelInitializer;
 
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
+import uz.techie.shifobaxshasaluz.MyApp;
 import uz.techie.shifobaxshasaluz.models.Cart;
 import uz.techie.shifobaxshasaluz.models.History;
 import uz.techie.shifobaxshasaluz.models.News;
@@ -17,12 +25,14 @@ import uz.techie.shifobaxshasaluz.models.Product;
 import uz.techie.shifobaxshasaluz.models.Seller;
 import uz.techie.shifobaxshasaluz.models.User;
 
-public class HoneyViewModel extends AndroidViewModel {
+public class HoneyViewModel extends ViewModel {
     HoneyRepository repository;
-    public HoneyViewModel(Application application) {
-        super(application);
-        repository = new HoneyRepository(application);
+
+    public HoneyViewModel(Context context) {
+        repository = new HoneyRepository(context);
     }
+
+
 
 
     //user

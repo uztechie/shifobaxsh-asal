@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.squareup.picasso.Picasso;
@@ -23,6 +23,7 @@ import uz.nisd.asalsavdosi.R;
 import uz.techie.shifobaxshasaluz.fragments.NewsDetailsFragmentArgs;
 import uz.techie.shifobaxshasaluz.models.News;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class NewsDetailsFragment extends Fragment {
@@ -42,7 +43,7 @@ public class NewsDetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         progressHUD = new KProgressHUD(requireContext());
         tvDate = view.findViewById(R.id.news_details_date);
         tvTitle = view.findViewById(R.id.news_details_title);

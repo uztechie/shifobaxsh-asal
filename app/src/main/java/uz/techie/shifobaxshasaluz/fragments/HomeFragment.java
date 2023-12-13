@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +38,7 @@ import uz.techie.shifobaxshasaluz.adapter.ProductAdapter;
 import uz.techie.shifobaxshasaluz.models.Cart;
 import uz.techie.shifobaxshasaluz.models.Product;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class HomeFragment extends Fragment implements ProductAdapter.ProductInterface, CustomDialog.CustomDialogInterface {
@@ -62,7 +63,7 @@ public class HomeFragment extends Fragment implements ProductAdapter.ProductInte
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         progressHUD = new KProgressHUD(requireContext());
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         disposable = new CompositeDisposable();
 
         dialog = new CustomDialog(requireActivity(), this);

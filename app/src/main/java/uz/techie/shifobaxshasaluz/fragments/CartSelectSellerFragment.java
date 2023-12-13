@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -60,6 +60,7 @@ import uz.techie.shifobaxshasaluz.models.Seller;
 import uz.techie.shifobaxshasaluz.models.User;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class CartSelectSellerFragment extends Fragment implements CustomDialog.CustomDialogInterface {
@@ -106,7 +107,7 @@ public class CartSelectSellerFragment extends Fragment implements CustomDialog.C
         super.onViewCreated(view, savedInstanceState);
         disposable = new CompositeDisposable();
         progressHUD = new KProgressHUD(requireContext());
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         customDialog = new CustomDialog(requireActivity(), CartSelectSellerFragment.this);
 
         Utils.showProgressBar(progressHUD);

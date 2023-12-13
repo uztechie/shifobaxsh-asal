@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +37,7 @@ import uz.techie.shifobaxshasaluz.models.Order;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.network.ApiInterface;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class FriendFragment extends Fragment implements CustomDialog.CustomDialogInterface {
@@ -69,7 +70,7 @@ public class FriendFragment extends Fragment implements CustomDialog.CustomDialo
 
         dialog = new CustomDialog(requireActivity(), FriendFragment.this);
 
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
         adapter = new FriendAdapter(friends);
         progressBar = view.findViewById(R.id.friend_progressbar);
         recyclerView = view.findViewById(R.id.friend_recyclerview);

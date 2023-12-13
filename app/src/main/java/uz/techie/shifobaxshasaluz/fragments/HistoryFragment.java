@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +26,7 @@ import uz.techie.shifobaxshasaluz.adapter.HistoryAdapter;
 import uz.techie.shifobaxshasaluz.models.History;
 import uz.techie.shifobaxshasaluz.models.Order;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class HistoryFragment extends Fragment implements HistoryAdapter.HistoryInterface {
@@ -50,7 +51,7 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.HistoryI
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         progressHUD = new KProgressHUD(requireContext());
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
 
         progressBar = view.findViewById(R.id.history_progressbar);
         recyclerView = view.findViewById(R.id.history_recyclerview);

@@ -14,10 +14,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -43,6 +44,7 @@ import uz.nisd.asalsavdosi.R;
 import uz.techie.shifobaxshasaluz.models.Bonus;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(this)).get(HoneyViewModel.class);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -84,7 +86,10 @@ public class MainActivity extends AppCompatActivity{
 
         bottomNavigationView = findViewById(R.id.main_bottomView);
 
-        navController = Navigation.findNavController(this, R.id.fragmentContainerView);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById( R.id.fragmentContainerView);
+        if (navHostFragment != null) {
+            navController = navHostFragment.getNavController();
+        }
         NavigationUI.setupWithNavController(toolbar, navController);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

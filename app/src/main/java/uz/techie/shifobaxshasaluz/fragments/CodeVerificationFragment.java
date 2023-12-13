@@ -24,7 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.chaos.view.PinView;
@@ -57,6 +57,7 @@ import uz.techie.shifobaxshasaluz.Utils;
 import uz.techie.shifobaxshasaluz.models.HoneyResponse;
 import uz.techie.shifobaxshasaluz.network.ApiClient;
 import uz.techie.shifobaxshasaluz.room.HoneyViewModel;
+import uz.techie.shifobaxshasaluz.room.HoneyViewModelFactory;
 
 
 public class CodeVerificationFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
@@ -111,7 +112,7 @@ public class CodeVerificationFragment extends Fragment implements DatePickerDial
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewModel = ViewModelProviders.of(this).get(HoneyViewModel.class);
+        viewModel = new ViewModelProvider(this, new HoneyViewModelFactory(requireContext())).get(HoneyViewModel.class);
 
         progressHUD = KProgressHUD.create(requireContext());
         progressBar = view.findViewById(R.id.confirm_progress_circular);
